@@ -7,5 +7,6 @@ namespace InventoryManagement.Controllers
 {
     public class Login
     {
+
     }
 }
