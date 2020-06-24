@@ -27,7 +27,7 @@ namespace InventoryManagement.Controllers
         [HttpPost]
         public ActionResult SignIn(string userName, string password)
         {
-            int userID = 0;
+            int? userID = 0;
             try
             {
                 if (userName == null && password == null)
@@ -37,7 +37,7 @@ namespace InventoryManagement.Controllers
                 }
                 else
                 {
-                    userID = InventoryDB.spInventoryGetUserID(userName, password);
+                    userID = InventoryDB.spInventoryGetUserID(userName, password).FirstOrDefault();
                     if (userID > 0)
                     {
                         Session["userID"] = userID;
