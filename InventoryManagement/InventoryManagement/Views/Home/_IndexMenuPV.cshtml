@@ -1,0 +1,128 @@
+﻿@using InventoryManagement.Models;
+
+@{
+    INVENTORYMNGDBEntities INVENTORYMNGDB = new INVENTORYMNGDBEntities();
+
+    var Menu = (List<sp_GetMenuByRole_Result>)ViewBag.GetMenu;
+    var Menu2 = (List<sp_GetMenuByRole_Result>)ViewBag.GetMenu;
+}
+
+<nav class="mt-2">
+    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
+        @for (var i = 0; i < Menu.Count(); i++)
+        {
+            if (Menu[i].MenuOptID == 0)
+            {
+                <li class="nav-item">
+                    <a href="../@Menu[i].ControllerName/@Menu[i].ViewName" class="nav-link">
+                        <i class="nav-icon @Menu[i].Icon"></i>
+                        <p> @Menu[i].DisplayName</p>
+                    </a>
+                </li>
+            }
+            else
+            {
+                Menu2 = INVENTORYMNGDB.sp_GetMenuByRole(1, 1, Menu[i].ID).ToList();
+
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link active">
+                        <i class="nav-icon @Menu[i].Icon"></i>
+                        <p>@Menu[i].DisplayName<i class="right fas fa-angle-left"></i></p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        @for (var ii = 0; ii < Menu2.Count(); ii++)
+                        {
+                            <li class="nav-item">
+                                <a href="../@Menu2[ii].ControllerName/@Menu2[ii].ViewName" class="nav-link" style="padding-left: 30px;">
+                                    <i class="nav-icon @Menu2[ii].Icon"></i>
+                                    <p>@Menu2[ii].DisplayName</p>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+        }
+
+        @*<li class="nav-item has-treeview menu-open">
+                <a href="#" class="nav-link active">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                        Dashboard
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="../../index.html" class="nav-link active">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Dashboard v1</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>*@
+
+        @*<li class="nav-header">MULTI LEVEL EXAMPLE</li>
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="fas fa-circle nav-icon"></i>
+                <p>Level 1 <span class="right badge badge-danger">New</span></p>
+            </a>
+        </li>
+        <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-circle"></i>
+                <p>
+                    Level 1
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Level 2</p>
+                    </a>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>
+                            Level 2
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-dot-circle nav-icon"></i>
+                                <p>Level 3</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>*@
+
+        <li class="nav-header">LABELS</li>
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon far fa-circle text-danger"></i>
+                <p class="text">Important</p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon far fa-circle text-warning"></i>
+                <p>Warning</p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon far fa-circle text-info"></i>
+                <p>Informational</p>
+            </a>
+        </li>
+    </ul>
+</nav>

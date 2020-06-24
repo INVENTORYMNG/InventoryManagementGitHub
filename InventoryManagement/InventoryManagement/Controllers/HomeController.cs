@@ -8,9 +8,20 @@ namespace InventoryManagement.Controllers
 {
     public class HomeController : Controller
     {
+        Models.INVENTORYMNGDBEntities INVENTORYMNGDB = new Models.INVENTORYMNGDBEntities();
         public ActionResult Index()
         {
             return View();
+        }
+
+        public PartialViewResult _IndexMenuPV()
+        {
+            try
+            {
+                ViewBag.GetMenu = INVENTORYMNGDB.sp_GetMenuByRole(1, 1, 0).ToList();
+            }
+            catch { }
+            return PartialView();
         }
 
         public ActionResult About()
