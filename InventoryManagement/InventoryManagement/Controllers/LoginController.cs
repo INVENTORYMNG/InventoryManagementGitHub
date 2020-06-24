@@ -33,7 +33,6 @@ namespace InventoryManagement.Controllers
                 if (userName == null && password == null)
                 {
                     return View("SignIn");
-                    //return View("~/Login/SingIn.cshtml");
                 }
                 else
                 {
