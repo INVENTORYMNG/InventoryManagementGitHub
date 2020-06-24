@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>RegistrationForm_v4 by Colorlib</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- STYLE CSS -->
+    <link href="~/Content/colorlib-regform-20/css/style.css" rel="stylesheet" />
+    <link href="~/Content/sweatAlert/dist/sweetalert2.css" rel="stylesheet" />
+
+</head>
+<body>
+    @RenderBody()
+    <script src="~/Content/colorlib-regform-20/js/jquery-3.3.1.min.js"></script>
+    <script src="~/Content/colorlib-regform-20/js/main.js"></script>
+    <script src="~/Content/sweatAlert/dist/sweetalert2.all.min.js"></script>
+    @RenderSection("scriptsLogin", required: false)
+
+    @if (@ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+        function ShowErrorPopup() {
+            var type = @ViewBag.Type;
+            //error
+            if (type == 1) {
+                Swal.fire({
+                    title: "Sorry!",
+                    text: "@ViewBag.Message",
+                    type: "error",
+                    icon: "error",
+                    showCancelButton: false,
+                    confirmButtonText: "Ok",
+                    closeOnConfirm: true
+                }
+                    @*, function () {
+                    var event = createNewEvent('click')
+                    genericLog(event, "@ViewBag.Message", "btnConfirmError")
+                    //log(null,this, "btnConfirmError");
+                    }*@
+                );
+            }
+            //success
+            if (type == 2) {
+                Swal.fire({
+                    title: "Success!",
+                    text: "@ViewBag.Message",
+                    type: "success",
+                    icon: "success",
+                    showCancelButton: false,
+                    confirmButtonText: "Ok",
+                    closeOnConfirm: true
+                }, function () {
+                    var event = createNewEvent('click')
+                    genericLog(event, "@ViewBag.Message", "btnConfirmSuccess")
+                    //log(null,this, "btnConfirmSuccess");
+                    //localStorage.clear();
+                    localStorage.removeItem('duration');
+                    localStorage.removeItem('ClientLastTab');
+                    localStorage.removeItem('lastTab');
+                    localStorage.removeItem('lastTabRelatedAccount');
+                    localStorage.removeItem('filestargetdiv');
+
+
+                    ///EdirOrder Vars
+                    localStorage.removeItem('selectedGeneralTab');
+                    localStorage.removeItem('selectedProductTab');
+                    localStorage.removeItem('selectedProductComponentTab');
+                    localStorage.removeItem('selectedInternaltTab');
+                });
+            }
+            //warning
+            if (type == 3) {
+                swal({
+                    title: "Warning",
+                    text: "@ViewBag.Message",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Change password",
+                    closeOnConfirm: false
+                }, function () {
+                    var url = '@Url.Action("ForgotPassword", "Login")';
+                    var event = createNewEvent('click')
+                    genericLog(event, "@ViewBag.Message", "btnConfirmWarning");
+                    //log(null, this, "btnConfirmWarning");
+                    window.location.href = url;
+                });
+            }
+            //inactivity
+            if (type == 4) {
+                swal({
+                    title: "Inactivity log out!",
+                    text: "@ViewBag.Message",
+                    type: "error",
+                    icon: "error",
+                    showCancelButton: false,
+                    confirmButtonText: "Ok",
+                    closeOnConfirm: true
+                }, function () {
+                    var event = createNewEvent('click')
+                    genericLog(event, "@ViewBag.Message", "btnConfirmInactivity");
+                    //log(null,this, "btnConfirmInactivity");
+                });
+            }
+            if (type == 5) {
+                swal({
+                    title: "Warning!",
+                    text: "@ViewBag.Message",
+                    type: "warning",
+                    icon: "warning",
+                    showCancelButton: false,
+                    confirmButtonText: "Ok",
+                    closeOnConfirm: true
+                }, function () {
+                    //log(null, this, "btnConfirmWarning");
+                    var event = createNewEvent('click')
+                    genericLog(event, "@ViewBag.Message", "btnConfirmWarning");
+                });
+            }
+        }
+        ShowErrorPopup();
+
+        function createNewEvent(eventName) {
+            var event;
+            if (typeof (Event) === 'function') {
+                event = new Event(eventName);
+            } else {
+                event = document.createEvent('Event');
+                event.initEvent(eventName, true, true);
+            }
+            return event;
+        }
+        </script>
+    }
+</body>
+</html>
