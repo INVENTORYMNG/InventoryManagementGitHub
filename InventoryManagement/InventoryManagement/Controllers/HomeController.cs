@@ -21,6 +21,7 @@ namespace InventoryManagement.Controllers
                 ViewBag.GetMenu = INVENTORYMNGDB.sp_GetMenuByRole(1, 1, 0).ToList();
             }
             catch { }
+
             return PartialView();
         }
 
