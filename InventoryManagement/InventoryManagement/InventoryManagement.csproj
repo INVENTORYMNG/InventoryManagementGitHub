@@ -136,6 +136,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\GeneralModels.cs" />
     <Compile Include="Models\INVENTORYMNGDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -151,16 +152,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>INVENTORYMNGDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\MimeTypeMap.cs" />
     <Compile Include="Models\spGetCompanyInformation_Result.cs">
       <DependentUpon>INVENTORYMNGDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\spGetCountry_Result.cs">
       <DependentUpon>INVENTORYMNGDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\spGetUserInfoByEmail_Result.cs">
+    <Compile Include="Models\spGetMenuByRole_Result.cs">
       <DependentUpon>INVENTORYMNGDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sp_GetMenuByRole_Result.cs">
+    <Compile Include="Models\spGetUserInfoByEmail_Result.cs">
       <DependentUpon>INVENTORYMNGDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
