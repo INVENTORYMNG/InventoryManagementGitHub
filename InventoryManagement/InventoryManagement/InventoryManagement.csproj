@@ -150,6 +150,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>INVENTORYMNGDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\spGetUserInfoByEmail_Result.cs">
+      <DependentUpon>INVENTORYMNGDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_GetMenuByRole_Result.cs">
       <DependentUpon>INVENTORYMNGDB.tt</DependentUpon>
     </Compile>
@@ -173,7 +176,11 @@
     <Content Include="Content\colorlib-regform-20\css\style.css" />
     <Content Include="Content\colorlib-regform-20\fonts\el_messiri\OFL.txt" />
     <Content Include="Content\colorlib-regform-20\fonts\montserrat\OFL.txt" />
+    <Content Include="Content\colorlib-regform-20\images\bg-inventory.jpg" />
     <Content Include="Content\colorlib-regform-20\images\bg-registration-form-4.jpg" />
+    <Content Include="Content\colorlib-regform-20\images\forgotpassword.jpg" />
+    <Content Include="Content\colorlib-regform-20\images\Inventario.png" />
+    <Content Include="Content\colorlib-regform-20\images\password.png" />
     <Content Include="Content\colorlib-regform-20\images\registration-form-4.jpg" />
     <Content Include="Content\colorlib-regform-20\index.html" />
     <Content Include="Content\colorlib-regform-20\js\jquery-3.3.1.min.js" />
@@ -3998,13 +4005,6 @@
     <Content Include="Content\dist\js\.eslintrc.json" />
     <Content Include="Content\dist\js\adminlte.js.map" />
     <Content Include="Content\dist\js\adminlte.min.js.map" />
-    <EntityDeploy Include="Models\INVENTORYMNGDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>INVENTORYMNGDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\INVENTORYMNGDB.edmx.diagram">
-      <DependentUpon>INVENTORYMNGDB.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\sweatAlert\CHANGELOG.md" />
     <Content Include="Content\sweatAlert\LICENSE" />
     <Content Include="Content\sweatAlert\package.json" />
@@ -4020,6 +4020,22 @@
     <Content Include="Content\sweatAlert\src\scss\_toasts.scss" />
     <Content Include="Content\sweatAlert\src\sweetalert2.scss" />
     <Content Include="Content\sweatAlert\src\variables.scss" />
+    <Content Include="Web.config" />
+    <Content Include="Views\Login\ChangePassword.cshtml" />
+    <Content Include="Views\Login\ForgotPassword.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <EntityDeploy Include="Models\INVENTORYMNGDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>INVENTORYMNGDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\INVENTORYMNGDB.edmx.diagram">
+      <DependentUpon>INVENTORYMNGDB.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -4031,13 +4047,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
@@ -4047,6 +4056,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\_IndexMenuPV.cshtml" />
     <Content Include="Views\Login\SignIn.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -4068,12 +4078,13 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="Content\sweatAlert\sweetalert2.d.ts" />
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
