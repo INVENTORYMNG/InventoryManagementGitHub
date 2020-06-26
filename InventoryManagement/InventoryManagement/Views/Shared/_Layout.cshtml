@@ -3,12 +3,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>Inventory Management :: @ViewBag.Title</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="~/Content/plugins/fontawesome-free/css/all.min.css">
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="~/Content/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="~/Content/plugins/toastr/toastr.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="~/Content/dist/css/adminlte.min.css">
 
@@ -162,7 +166,7 @@
                 </div>
 
                 <!-- Sidebar Menu -->
-                    @Html.Action("_IndexMenuPV", "Home")
+                @Html.Action("_IndexMenuPV", "Home")
                 <!-- /.sidebar-menu -->
             </div>
             <!-- /.sidebar -->
@@ -176,9 +180,9 @@
 
         <footer class="main-footer">
             <div class="float-right d-none d-sm-block">
-                <b>Version</b> 3.1.0-pre
+                <b>Version</b> 1.0
             </div>
-            <strong>Copyright &copy; @DateTime.Now.Year <a href="#">CasteGa</a>.</strong> All rights reserved.
+            <strong>Copyright &copy; @DateTime.Now.Year <a href="#">Castega</a>.</strong> All rights reserved.
         </footer>
 
         <!-- Control Sidebar -->
@@ -192,6 +196,10 @@
     <script src="~/Content/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="~/Content/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="~/Content/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <!-- Toastr -->
+    <script src="~/Content/plugins/toastr/toastr.min.js"></script>
     <!-- AdminLTE App -->
     <script src="~/Content/dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
@@ -200,6 +208,26 @@
     @*@Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")*@
 
+    @RenderSection("modals", required: false)
+
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
     @RenderSection("scripts", required: false)
+
+    <script>       
+        function AlertNotification(type, message) {
+            var Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000
+            });
+
+            Toast.fire({
+                icon: type,
+                title: message
+            })
+        }
+    </script>
 </body>
 </html>

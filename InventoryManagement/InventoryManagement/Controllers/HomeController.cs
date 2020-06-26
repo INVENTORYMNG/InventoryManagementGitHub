@@ -18,7 +18,7 @@ namespace InventoryManagement.Controllers
         {
             try
             {
-                ViewBag.GetMenu = INVENTORYMNGDB.sp_GetMenuByRole(1, 1, 0).ToList();
+                ViewBag.GetMenu = INVENTORYMNGDB.spGetMenuByRole(1, 1, 0).ToList();
             }
             catch { }
 
