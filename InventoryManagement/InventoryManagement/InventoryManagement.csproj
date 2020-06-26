@@ -136,7 +136,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\GeneralModels.cs" />
+    <Compile Include="CustomClass\GeneralModels.cs" />
     <Compile Include="Models\INVENTORYMNGDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -152,7 +152,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>INVENTORYMNGDB.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\MimeTypeMap.cs" />
+    <Compile Include="CustomClass\MimeTypeMap.cs" />
     <Compile Include="Models\spGetCompanyInformation_Result.cs">
       <DependentUpon>INVENTORYMNGDB.tt</DependentUpon>
     </Compile>
