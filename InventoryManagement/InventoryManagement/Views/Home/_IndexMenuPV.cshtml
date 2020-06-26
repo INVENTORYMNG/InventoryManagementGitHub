@@ -3,8 +3,8 @@
 @{
     INVENTORYMNGDBEntities INVENTORYMNGDB = new INVENTORYMNGDBEntities();
 
-    var Menu = (List<sp_GetMenuByRole_Result>)ViewBag.GetMenu;
-    var Menu2 = (List<sp_GetMenuByRole_Result>)ViewBag.GetMenu;
+    var Menu = (List<spGetMenuByRole_Result>)ViewBag.GetMenu;
+    var Menu2 = (List<spGetMenuByRole_Result>)ViewBag.GetMenu;
 }
 
 <nav class="mt-2">
@@ -23,7 +23,7 @@
             }
             else
             {
-                Menu2 = INVENTORYMNGDB.sp_GetMenuByRole(1, 1, Menu[i].ID).ToList();
+                Menu2 = INVENTORYMNGDB.spGetMenuByRole(1, 1, Menu[i].ID).ToList();
 
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link active">

@@ -130,11 +130,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\GeneralModels.cs" />
     <Compile Include="Models\INVENTORYMNGDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -150,7 +152,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>INVENTORYMNGDB.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\sp_GetMenuByRole_Result.cs">
+    <Compile Include="Models\MimeTypeMap.cs" />
+    <Compile Include="Models\spGetCompanyInformation_Result.cs">
+      <DependentUpon>INVENTORYMNGDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetCountry_Result.cs">
+      <DependentUpon>INVENTORYMNGDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetMenuByRole_Result.cs">
       <DependentUpon>INVENTORYMNGDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -3998,13 +4007,6 @@
     <Content Include="Content\dist\js\.eslintrc.json" />
     <Content Include="Content\dist\js\adminlte.js.map" />
     <Content Include="Content\dist\js\adminlte.min.js.map" />
-    <EntityDeploy Include="Models\INVENTORYMNGDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>INVENTORYMNGDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\INVENTORYMNGDB.edmx.diagram">
-      <DependentUpon>INVENTORYMNGDB.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\sweatAlert\CHANGELOG.md" />
     <Content Include="Content\sweatAlert\LICENSE" />
     <Content Include="Content\sweatAlert\package.json" />
@@ -4020,6 +4022,13 @@
     <Content Include="Content\sweatAlert\src\scss\_toasts.scss" />
     <Content Include="Content\sweatAlert\src\sweetalert2.scss" />
     <Content Include="Content\sweatAlert\src\variables.scss" />
+    <EntityDeploy Include="Models\INVENTORYMNGDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>INVENTORYMNGDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\INVENTORYMNGDB.edmx.diagram">
+      <DependentUpon>INVENTORYMNGDB.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -4047,6 +4056,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\_IndexMenuPV.cshtml" />
     <Content Include="Views\Login\SignIn.cshtml" />
+    <Content Include="Views\Company\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Views\Company\BranchOffices.cshtml" />
+    <Content Include="Views\Company\_InsertUpdateCompany.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -4067,9 +4080,6 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="Content\sweatAlert\sweetalert2.d.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
