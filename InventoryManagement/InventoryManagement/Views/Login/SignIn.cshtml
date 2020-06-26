@@ -4,33 +4,36 @@
     Layout = "~/Views/Shared/_LayoutLogin.cshtml";
 }
 
-    <div class="wrapper">
-        <div class="inner">
-            <div class="image-holder">
-                <img src="~/Content/colorlib-regform-20/images/Inventario.png" />
-            </div>
-            @using (Html.BeginForm("SignIn", "Login", FormMethod.Post, new { @id = "frmLoginSignIn" }))
-            {
-                <h3>Sign In</h3>
-                <div class="form-holder active">
-                    @Html.TextBox("userName", null, new { @class = "form-control", @placeholder = "User", @id = "userName", required = true, @autcomplete = "off", @type = "text" })
-                </div>
-                @*<div class="form-holder">
-                    <input type="text" placeholder="e-mail" class="form-control">
-                </div>*@
-        <div class="form-holder">
-            @Html.Password("password", null, new { @class = "form-control", @placeholder = "Password", @id = "password", required = true, @autcomplete = "off", @style = "font-size: 15px;" })
+<div class="wrapper">
+    <div class="inner">
+        <div class="image-holder">
+            <img src="~/Content/colorlib-regform-20/images/Inventario.png" />
         </div>
-                @*<div class="checkbox">
-                    <label>
-                        <input type="checkbox" checked> I agree all statement in <a href="#">Terms & Conditions</a>
-                        <span class="checkmark"></span>
-                    </label>
-                </div>*@
-                <div class="form-login">
-                    <button type="submit">Sign in</button>
-                    <p><a href="#">Forgot password?</a></p>
-                </div>
-            }
+        @using (Html.BeginForm("SignIn", "Login", FormMethod.Post, new { @id = "frmLoginSignIn" }))
+        {
+            <h3>Sign In</h3>
+            <div class="form-holder active">
+                @Html.TextBox("userName", null, new { @class = "form-control", @placeholder = "User", @id = "userName", required = true, @autcomplete = "off", @type = "text" })
             </div>
+            @*<div class="form-holder">
+                <input type="text" placeholder="e-mail" class="form-control">
+            </div>*@
+            <div class="form-holder">
+                @Html.Password("password", null, new { @class = "form-control", @placeholder = "Password", @id = "password", required = true, @autcomplete = "off", @style = "font-size: 15px;" })
+            </div>
+            @*<div class="checkbox">
+                <label>
+                    <input type="checkbox" checked> I agree all statement in <a href="#">Terms & Conditions</a>
+                    <span class="checkmark"></span>
+                </label>
+            </div>*@
+            <div class="form-login">
+                <button type="submit">Sign in</button>
+                <button type="button" onclick="@("window.location.href='" + @Url.Action("ChangePassword", "Login") + "'");" style="width:240px;">Change password</button>
+            </div>
+            <div style="text-align: center;">
+                <a name="linkForgotChangePassword" href='@Url.Action("ForgotPassword", "Login")' class="link">Forgot or change Password?</a>
+            </div>
+        }
     </div>
+</div>

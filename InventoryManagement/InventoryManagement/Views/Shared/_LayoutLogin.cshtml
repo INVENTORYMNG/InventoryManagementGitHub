@@ -70,7 +70,7 @@
             }
             //warning
             if (type == 3) {
-                swal({
+                Swal.fire({
                     title: "Warning",
                     text: "@ViewBag.Message",
                     type: "warning",
@@ -88,7 +88,7 @@
             }
             //inactivity
             if (type == 4) {
-                swal({
+                Swal.fire({
                     title: "Inactivity log out!",
                     text: "@ViewBag.Message",
                     type: "error",
@@ -103,7 +103,7 @@
                 });
             }
             if (type == 5) {
-                swal({
+                Swal.fire({
                     title: "Warning!",
                     text: "@ViewBag.Message",
                     type: "warning",
